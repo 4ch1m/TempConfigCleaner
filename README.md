@@ -18,7 +18,7 @@ Use the IDE's built-in plugin system:
 
 <kbd>Preferences</kbd> &rarr; <kbd>Plugins</kbd> &rarr; <kbd>Browse repositories...</kbd> &rarr; <kbd>Search for "TempConfig Cleaner"</kbd> &rarr; <kbd>Install Plugin</kbd>
 
-Or go to the [plugin page](https://plugins.jetbrains.com/plugin/XXXX?pr=idea) on the JetBrains-website, download the archive-file and install manually.
+Or go to the [plugin page](https://plugins.jetbrains.com/plugin/9234?pr=idea) on the JetBrains-website, download the archive-file and install manually.
 
 ##Changelog
 

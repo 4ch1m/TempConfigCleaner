@@ -6,6 +6,7 @@ import com.intellij.openapi.components.AbstractProjectComponent;
 import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Collection;
 import java.util.Iterator;
 
 public class TempConfigCleaner extends AbstractProjectComponent {
@@ -20,10 +21,17 @@ public class TempConfigCleaner extends AbstractProjectComponent {
     @Override
     public void projectOpened() {
         RunManagerEx runManager = RunManagerEx.getInstanceEx(project);
-        Iterator<RunnerAndConfigurationSettings> configurationIterator = runManager.getTempConfigurationsList().iterator();
+        Iterator<RunnerAndConfigurationSettings> tempConfigurationsIterator = runManager.getTempConfigurationsList().iterator();
 
-        while (configurationIterator.hasNext()) {
-            runManager.removeConfiguration(configurationIterator.next());
+        while (tempConfigurationsIterator.hasNext()) {
+            runManager.removeConfiguration(tempConfigurationsIterator.next());
+        }
+
+        if (runManager.getSelectedConfiguration() == null) {
+            Collection<RunnerAndConfigurationSettings> sortedConfigurations = runManager.getSortedConfigurations();
+            if (!sortedConfigurations.isEmpty()) {
+                runManager.setSelectedConfiguration(sortedConfigurations.iterator().next());
+            }
         }
     }
 

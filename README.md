@@ -22,6 +22,9 @@ Or go to the [plugin page](https://plugins.jetbrains.com/plugin/9234?pr=idea) on
 
 ##Changelog
 
+#### **v1.1** (2016-11-05):
+* automatically select the first existing configuration in your list, if none is selected after removing the temp-configs
+
 #### **v1.0** (2016-11-05):
 * initial release
 

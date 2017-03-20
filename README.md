@@ -1,7 +1,7 @@
-#TempConfig Cleaner
+# TempConfig Cleaner
 Automatically removes all temporary run/debug configurations when reopening the project.
 
-##About
+## About
 
 IntelliJ IDEA has a neat feature called "temporary configuration".
 
@@ -13,14 +13,14 @@ While it's already possible to configure how many of these temporary configurati
 
 So this plugin will remove all temporary configurations when re-opening a project; giving you a fresh start and keeping your configurations clutter-free.
 
-##Installation
+## Installation
 Use the IDE's built-in plugin system:
 
 <kbd>Preferences</kbd> &rarr; <kbd>Plugins</kbd> &rarr; <kbd>Browse repositories...</kbd> &rarr; <kbd>Search for "TempConfig Cleaner"</kbd> &rarr; <kbd>Install Plugin</kbd>
 
 Or go to the [plugin page](https://plugins.jetbrains.com/plugin/9234?pr=idea) on the JetBrains-website, download the archive-file and install manually.
 
-##Changelog
+## Changelog
 
 #### **v1.1** (2016-11-05):
 * automatically select the first existing configuration in your list, if none is selected after removing the temp-configs
@@ -28,14 +28,14 @@ Or go to the [plugin page](https://plugins.jetbrains.com/plugin/9234?pr=idea) on
 #### **v1.0** (2016-11-05):
 * initial release
 
-##Author
+## Author
 Developed by *Achim Seufert*
 
 Website: [achimonline.de](http://www.achimonline.de)
 
 eMail: [intellij@achimonline.de](mailto:intellij@achimonline.de)
 
-##License
+## License
 *TempConfig Cleaner* is licensed under the terms of the *GNU General Public License license* (GPL-3.0+).
 
 Read the file [LICENSE.txt](LICENSE.txt) for further details.

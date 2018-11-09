@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.3.12'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+intellij {
+    version '2018.2.5'
+}
+
+publishPlugin {
+    username intellijPublishUsername
+    password intellijPublishPassword
+}

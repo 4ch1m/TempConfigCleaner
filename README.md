@@ -1,6 +1,9 @@
 # TempConfig Cleaner
 Automatically removes all temporary run/debug configurations when reopening the project.
 
+##### Build Status
+[![Build Status](https://travis-ci.org/4ch1m/TempConfigCleaner.svg?branch=master)](https://travis-ci.org/4ch1m/TempConfigCleaner)
+
 ## About
 
 IntelliJ IDEA has a neat feature called "temporary configuration".
@@ -21,6 +24,10 @@ Use the IDE's built-in plugin system:
 Or go to the [plugin page](https://plugins.jetbrains.com/plugin/9234?pr=idea) on the JetBrains-website, download the archive-file and install manually.
 
 ## Changelog
+
+#### **v1.2** (2018-11-??):
+* migration to Gradle-based plugin/project
+* minor code changes/updates
 
 #### **v1.1** (2016-11-05):
 * automatically select the first existing configuration in your list, if none is selected after removing the temp-configs

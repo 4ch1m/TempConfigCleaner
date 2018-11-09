@@ -28,7 +28,8 @@ public class TempConfigCleaner extends AbstractProjectComponent {
         }
 
         if (runManager.getSelectedConfiguration() == null) {
-            Collection<RunnerAndConfigurationSettings> sortedConfigurations = runManager.getSortedConfigurations();
+            Collection<RunnerAndConfigurationSettings> sortedConfigurations = runManager.getAllSettings();
+
             if (!sortedConfigurations.isEmpty()) {
                 runManager.setSelectedConfiguration(sortedConfigurations.iterator().next());
             }

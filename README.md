@@ -25,7 +25,7 @@ Or go to the [plugin page](https://plugins.jetbrains.com/plugin/9234?pr=idea) on
 
 ## Changelog
 
-#### **v1.2** (2018-11-??):
+#### **v1.2** (2018-11-09):
 * migration to Gradle-based plugin/project
 * minor code changes/updates
 

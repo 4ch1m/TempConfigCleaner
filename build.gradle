@@ -11,9 +11,14 @@ repositories {
 
 intellij {
     version '2018.2.5'
+    pluginName 'TempConfig Cleaner'
+    updateSinceUntilBuild false
 }
 
 publishPlugin {
     username intellijPublishUsername
     password intellijPublishPassword
 }
+
+group 'de.achimonline'
+version 1.2

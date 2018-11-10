@@ -2,7 +2,6 @@
 
   <id>de.achimonline.tempconfigcleaner</id>
   <name>TempConfig Cleaner</name>
-  <version>1.2</version>
   <vendor email="intellij@achimonline.de" url="https://plugins.jetbrains.com/space/index?pr=idea&amp;lg=4ch1m">Achim Seufert</vendor>
 
   <description><![CDATA[
@@ -10,6 +9,10 @@
     ]]></description>
 
   <change-notes><![CDATA[
+      <b>1.3</b>
+      <ul>
+        <li>added 'lang' module-dependency (improving product compatibility)</li>
+      </ul>
       <b>1.2</b>
       <ul>
         <li>migration to Gradle-based plugin/project</li>
@@ -27,6 +30,8 @@
   </change-notes>
 
   <idea-version since-build="162.0"/>
+
+  <depends>com.intellij.modules.lang</depends>
 
   <extensions defaultExtensionNs="com.intellij"/>
 

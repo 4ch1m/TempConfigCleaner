@@ -23,18 +23,6 @@ Use the IDE's built-in plugin system:
 
 Or go to the [plugin page](https://plugins.jetbrains.com/plugin/9234?pr=idea) on the JetBrains-website, download the archive-file and install manually.
 
-## Changelog
-
-#### **v1.2** (2018-11-09):
-* migration to Gradle-based plugin/project
-* minor code changes/updates
-
-#### **v1.1** (2016-11-05):
-* automatically select the first existing configuration in your list, if none is selected after removing the temp-configs
-
-#### **v1.0** (2016-11-05):
-* initial release
-
 ## Author
 Developed by *Achim Seufert*
 

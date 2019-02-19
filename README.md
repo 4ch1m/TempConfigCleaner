@@ -19,9 +19,11 @@ So this plugin will remove all temporary configurations when re-opening a projec
 ## Installation
 Use the IDE's built-in plugin system:
 
-<kbd>Preferences</kbd> &rarr; <kbd>Plugins</kbd> &rarr; <kbd>Browse repositories...</kbd> &rarr; <kbd>Search for "TempConfig Cleaner"</kbd> &rarr; <kbd>Install Plugin</kbd>
+* <kbd>File</kbd> &rarr; <kbd>Settings</kbd> &rarr; <kbd>Plugins</kbd> &rarr; <kbd>Marketplace</kbd>
+* search for "TempConfig Cleaner"
+* click the <kbd>Install</kbd>-button
 
-Or go to the [plugin page](https://plugins.jetbrains.com/plugin/9234?pr=idea) on the JetBrains-website, download the archive-file and install manually.
+Or go to the [plugin page](https://plugins.jetbrains.com/plugin/9234) on the JetBrains-website, download the archive-file and install manually.
 
 ## Author
 Developed by *Achim Seufert*

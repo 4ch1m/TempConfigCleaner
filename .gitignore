@@ -1,3 +1,6 @@
-.idea/
+.idea
 *.iml
-releases/
+releases
+.gradle
+build
+out

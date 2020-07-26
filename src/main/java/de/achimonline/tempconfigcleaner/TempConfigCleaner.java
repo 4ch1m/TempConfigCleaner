@@ -2,29 +2,21 @@ package de.achimonline.tempconfigcleaner;
 
 import com.intellij.execution.RunManagerEx;
 import com.intellij.execution.RunnerAndConfigurationSettings;
-import com.intellij.openapi.components.AbstractProjectComponent;
+import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.startup.StartupActivity;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
-import java.util.Iterator;
 
-public class TempConfigCleaner extends AbstractProjectComponent {
-    private Project project;
-
-    protected TempConfigCleaner(Project project) {
-        super(project);
-
-        this.project = project;
-    }
+public class TempConfigCleaner implements StartupActivity, DumbAware {
 
     @Override
-    public void projectOpened() {
+    public void runActivity(@NotNull Project project) {
         RunManagerEx runManager = RunManagerEx.getInstanceEx(project);
-        Iterator<RunnerAndConfigurationSettings> tempConfigurationsIterator = runManager.getTempConfigurationsList().iterator();
 
-        while (tempConfigurationsIterator.hasNext()) {
-            runManager.removeConfiguration(tempConfigurationsIterator.next());
+        for (RunnerAndConfigurationSettings runnerAndConfigurationSettings : runManager.getTempConfigurationsList()) {
+            runManager.removeConfiguration(runnerAndConfigurationSettings);
         }
 
         if (runManager.getSelectedConfiguration() == null) {
@@ -36,9 +28,4 @@ public class TempConfigCleaner extends AbstractProjectComponent {
         }
     }
 
-    @NotNull
-    @Override
-    public String getComponentName() {
-        return "TempConfig Cleaner";
-    }
 }

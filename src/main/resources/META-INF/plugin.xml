@@ -9,6 +9,11 @@
     ]]></description>
 
   <change-notes><![CDATA[
+      <b>1.5</b>
+      <ul>
+        <li>updated Gradle-wrapper</li>
+        <li>minor improvements in build-file</li>
+      </ul>
       <b>1.4</b>
       <ul>
         <li>refactorings to get rid of deprecated API-calls/-usage</li>
@@ -36,8 +41,6 @@
       </ul>
     ]]>
   </change-notes>
-
-  <idea-version since-build="173.0"/>
 
   <depends>com.intellij.modules.lang</depends>
 

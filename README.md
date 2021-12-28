@@ -1,8 +1,5 @@
 # TempConfig Cleaner
-Automatically removes all temporary run/debug configurations when reopening the project.
-
-##### Build Status
-[![Build Status](https://travis-ci.org/4ch1m/TempConfigCleaner.svg?branch=master)](https://travis-ci.org/4ch1m/TempConfigCleaner)
+> Automatically removes all temporary run/debug configurations when reopening the project.
 
 ## About
 

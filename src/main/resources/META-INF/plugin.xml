@@ -9,10 +9,6 @@
       Achim Seufert
   </vendor>
 
-  <description><![CDATA[
-      Automatically removes all temporary run/debug configurations when reopening the project.
-  ]]></description>
-
   <depends>com.intellij.modules.lang</depends>
 
   <extensions defaultExtensionNs="com.intellij">

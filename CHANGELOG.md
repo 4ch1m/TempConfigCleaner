@@ -1,3 +1,9 @@
+## [1.6.2]
+
+### Changed
+- dependency updates
+- Gradle-wrapper update
+
 ## [1.6.1]
 
 ### Changed

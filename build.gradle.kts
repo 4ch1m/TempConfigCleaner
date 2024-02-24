@@ -1,5 +1,4 @@
 import org.jetbrains.changelog.Changelog
-import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
 fun properties(key: String) = project.findProperty(key).toString()
 
@@ -8,9 +7,9 @@ description = properties("pluginDescription")
 
 plugins {
     id("java")
-    id("org.jetbrains.intellij") version "1.13.3"
-    id("org.jetbrains.changelog") version "2.0.0"
-    id("com.github.ben-manes.versions") version "0.46.0"
+    id("org.jetbrains.intellij") version "1.17.2"
+    id("org.jetbrains.changelog") version "2.2.0"
+    id("com.github.ben-manes.versions") version "0.51.0"
 }
 
 repositories {
@@ -35,10 +34,10 @@ tasks {
         }
     }
 
-    withType<DependencyUpdatesTask> {
+    dependencyUpdates {
         rejectVersionIf {
             (
-                listOf("RELEASE", "FINAL", "GA").any { candidate.version.toUpperCase().contains(it) }
+                listOf("RELEASE", "FINAL", "GA").any { candidate.version.uppercase().contains(it) }
                 ||
                 "^[0-9,.v-]+(-r)?$".toRegex().matches(candidate.version)
             ).not()

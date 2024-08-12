@@ -1,39 +1,90 @@
 import org.jetbrains.changelog.Changelog
 
-fun properties(key: String) = project.findProperty(key).toString()
+fun property(key: String) = providers.gradleProperty(key).get()
+fun env(key: String) = providers.environmentVariable(key).get()
 
-version = properties("pluginVersion")
-description = properties("pluginDescription")
+group = property("pluginGroup")
+version = property("pluginVersion")
 
 plugins {
-    id("java")
-    id("org.jetbrains.intellij") version "1.17.2"
-    id("org.jetbrains.changelog") version "2.2.0"
+    id("org.jetbrains.kotlin.jvm") version "2.0.10"
+    id("org.jetbrains.intellij.platform") version "2.0.1"
+    id("org.jetbrains.changelog") version "2.2.1"
     id("com.github.ben-manes.versions") version "0.51.0"
 }
 
 repositories {
     mavenCentral()
+
+    intellijPlatform {
+        defaultRepositories()
+    }
 }
 
-intellij {
-    pluginName.set(properties("pluginName"))
-    version.set(properties("platformVersion"))
-    updateSinceUntilBuild.set(false)
+dependencies {
+    intellijPlatform {
+        create(
+            providers.gradleProperty("platformType"),
+            providers.gradleProperty("platformVersion")
+        )
+
+        instrumentationTools()
+        pluginVerifier()
+        zipSigner()
+    }
 }
 
-changelog {
-    version.set(properties("pluginVersion"))
+kotlin {
+    jvmToolchain(property("kotlinJvmTarget").toInt())
 }
 
-tasks {
-    properties("javaVersion").let {
-        withType<JavaCompile> {
-            sourceCompatibility = it
-            targetCompatibility = it
+intellijPlatform {
+    pluginConfiguration {
+        name = property("pluginName")
+        version = property("pluginVersion")
+        description = property("pluginDescription")
+        changeNotes = provider {
+            changelog.renderItem(
+                changelog.getLatest(),
+                Changelog.OutputType.HTML
+            )
+        }
+
+        ideaVersion {
+            sinceBuild = property("pluginSinceBuild")
+            untilBuild = provider { null }
         }
     }
 
+    signing {
+        if (listOf(
+                "JB_PLUGIN_SIGN_CERTIFICATE_CHAIN",
+                "JB_PLUGIN_SIGN_PRIVATE_KEY",
+                "JB_PLUGIN_SIGN_PRIVATE_KEY_PASSWORD").all { System.getenv(it) != null }) {
+            certificateChainFile = file(env("JB_PLUGIN_SIGN_CERTIFICATE_CHAIN"))
+            privateKeyFile = file(env("JB_PLUGIN_SIGN_PRIVATE_KEY"))
+            password = file(env("JB_PLUGIN_SIGN_PRIVATE_KEY_PASSWORD")).readText()
+        }
+    }
+
+    publishing {
+        if (System.getenv("JB_PLUGIN_PUBLISH_TOKEN") != null) {
+            token = file(env("JB_PLUGIN_PUBLISH_TOKEN")).readText().trim()
+        }
+    }
+
+    pluginVerification {
+        ides {
+            recommended()
+        }
+    }
+}
+
+changelog {
+    version = property("pluginVersion")
+}
+
+tasks {
     dependencyUpdates {
         rejectVersionIf {
             (
@@ -41,24 +92,6 @@ tasks {
                 ||
                 "^[0-9,.v-]+(-r)?$".toRegex().matches(candidate.version)
             ).not()
-        }
-    }
-
-    patchPluginXml {
-        pluginDescription.set(properties("pluginDescription"))
-        version.set(properties("pluginVersion"))
-        sinceBuild.set(properties("pluginSinceBuild"))
-        changeNotes.set(provider {
-            changelog.renderItem(
-                changelog.getLatest(),
-                Changelog.OutputType.HTML
-            )
-        })
-    }
-
-    publishPlugin {
-        if (project.hasProperty("JB_PLUGIN_PUBLISH_TOKEN")) {
-            token.set(project.property("JB_PLUGIN_PUBLISH_TOKEN").toString())
         }
     }
 }

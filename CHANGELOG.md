@@ -1,3 +1,12 @@
+## [1.7.0]
+
+### Changed
+- code rewrite/migration from Java to Kotlin
+- required IDE version >= `2024.2`
+- major "Gradle IntelliJ Plugin" update (`1.17.4` to `2.0.1`)
+- Gradle-wrapper update
+- other dependency updates
+
 ## [1.6.2]
 
 ### Changed

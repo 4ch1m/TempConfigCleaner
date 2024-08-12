@@ -3,13 +3,11 @@
 
 ## About
 
-IntelliJ IDEA has a neat feature called "temporary configuration".
+IntelliJ IDEA has a neat feature called "temporary run configuration".
 
-See:
-* [Temporary configuration](https://www.jetbrains.com/help/idea/2016.2/run-debug-configuration.html#d149123e18)
-* [Creating and Saving Temporary Run/Debug Configurations](https://www.jetbrains.com/help/idea/2016.2/creating-and-saving-temporary-run-debug-configurations.html)
+Check: "[Run/debug configurations](https://www.jetbrains.com/help/idea/run-debug-configuration.html#d149123e18)"
 
-While it's already possible to configure how many of these temporary configurations should be kept in your list, you may want to have them completely removed after your current coding session.
+While it's already possible to configure how many of these temporary run/debug configurations should be kept in your list, you may want to have them completely removed after your current coding session.
 
 So this plugin will remove all temporary configurations when re-opening a project; giving you a fresh start and keeping your configurations clutter-free.
 

@@ -1,3 +1,9 @@
+## [1.7.2]
+
+### Changed
+- dependency updates
+- Gradle-wrapper update
+
 ## [1.7.1]
 
 ### Changed
